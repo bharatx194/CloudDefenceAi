@@ -1,0 +1,35 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.3.0-M1'
+	id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'com.main.clouddefenceai'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '17'
+}
+
+repositories {
+	mavenCentral()
+	maven { url 'https://repo.spring.io/milestone' }
+}
+
+dependencies {
+
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '3.2.2'
+	implementation group: 'org.springframework.data', name: 'spring-data-jpa', version: '3.2.3'
+	implementation group: 'org.postgresql', name: 'postgresql', version: '42.2.12'
+	implementation group: 'org.hibernate', name: 'hibernate-core', version: '5.2.13.Final'
+	implementation group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.13'
+	implementation group: 'org.kohsuke', name: 'github-api', version: '1.133'
+	implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.16.1'
+	implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.16.1'
+	compileOnly 'org.projectlombok:lombok:1.18.4'
+	annotationProcessor 'org.projectlombok:lombok:1.18.4'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
